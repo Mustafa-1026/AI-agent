@@ -1,0 +1,769 @@
+[
+{
+"Faculty": 1,
+"Identity": {
+"Name": "Dr. K. Srinivas Reddy",
+"FacultyID": "VCE-001",
+"Department": "Computer Science and Engineering",
+"Designation": "Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (CSE), IISc Bangalore",
+"Experience": "18 years; roles: Assistant Professor, Associate Professor, Professor",
+"AreasOfSpecialization": [
+"Artificial Intelligence",
+"Machine Learning",
+"Data Mining"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"AI",
+"ML",
+"Data Mining",
+"Knowledge Representation"
+],
+"Skills": [
+"Python",
+"TensorFlow",
+"scikit-learn",
+"SQL",
+"R"
+],
+"ExpertiseTags": [
+"supervised-learning",
+"unsupervised-learning",
+"classification",
+"feature-engineering",
+"research-methods"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Explainable ML for Educational Analytics",
+"Industry collaboration: Predictive Maintenance using ML for local manufacturing"
+],
+"PublicationCount": 65,
+"CitationCount": 1400
+},
+"EngagementLayer": {
+"Email": "k.srinivasreddy@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ISTE"
+],
+"AwardsAchievements": [
+"Best Paper at National Conference on AI 2018",
+"Vardhaman Research Excellence Award 2021"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+},
+{ "Faculty": 2,
+"Identity": {
+"Name": "Dr. Priya Chaitanya",
+"FacultyID": "VCE-002",
+"Department": "Electronics and Communication Engineering",
+"Designation": "Associate Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (ECE), JNTUH",
+"Experience": "12 years; roles: Assistant Professor, Associate Professor",
+"AreasOfSpecialization": [
+"Signal Processing",
+"Wireless Communications",
+"Embedded Systems"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"DSP",
+"Wireless",
+"Embedded Systems",
+"IoT"
+],
+"Skills": [
+"MATLAB",
+"C/C++",
+"Embedded C",
+"GNU Radio",
+"Simulink"
+],
+"ExpertiseTags": [
+"digital-signal-processing",
+"mimo",
+"wireless-protocols",
+"sensor-networks"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Low-power DSP architectures for IoT sensors",
+"Industry: Prototype of LoRa-based agricultural monitoring"
+],
+"PublicationCount": 28,
+"CitationCount": 420
+},
+"EngagementLayer": {
+"Email": "priya.chaitanya@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IET"
+],
+"AwardsAchievements": [
+"Best Teacher Award (Vardhaman) 2019",
+"Travel grant by IEEE SPS 2017"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+},
+{ "Faculty": 3,
+"Identity": {
+"Name": "Prof. M. Raghava Rao",
+"FacultyID": "VCE-003",
+"Department": "Electrical and Electronics Engineering",
+"Designation": "Associate Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Power Systems), Osmania University",
+"Experience": "14 years; roles: Assistant Professor, Associate Professor",
+"AreasOfSpecialization": [
+"Power Systems",
+"Smart Grids",
+"Power Electronics"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Power Systems",
+"Smart Grid",
+"Renewable Integration",
+"Power Electronics"
+],
+"Skills": [
+"MATLAB/Simulink",
+"PSCAD",
+"ETAP",
+"Python"
+],
+"ExpertiseTags": [
+"load-flow",
+"distributed-generation",
+"grid-integration",
+"inverter-control"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Adaptive control of converters for renewable integration",
+"State-funded project: Microgrid stability assessment for rural electrification"
+],
+"PublicationCount": 34,
+"CitationCount": 760
+},
+"EngagementLayer": {
+"Email": "m.raghavarao@vardhaman.edu.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IEI"
+],
+"AwardsAchievements": [
+"Young Engineer Award (State) 2016",
+"Best Project Guide 2020"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+},
+{ "Faculty": 4,
+"Identity": {
+"Name": "Dr. Ananya Sharma",
+"FacultyID": "VCE-004",
+"Department": "Computer Science and Engineering",
+"Designation": "Assistant Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (CSE), IIIT Hyderabad",
+"Experience": "6 years; roles: Assistant Professor, Postdoc (contract)",
+"AreasOfSpecialization": [
+"Natural Language Processing",
+"Information Retrieval",
+"Conversational AI"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"NLP",
+"IR",
+"Dialogue Systems"
+],
+"Skills": [
+"Python",
+"PyTorch",
+"Hugging Face",
+"NLTK",
+"SpaCy"
+],
+"ExpertiseTags": [
+"transformers",
+"question-answering",
+"intent-detection",
+"semantic-search"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"Institutional: Chatbot for student services using transformer models",
+"Industry-funded: Domain-adaptive QA for legal documents"
+],
+"PublicationCount": 18,
+"CitationCount": 320
+},
+"EngagementLayer": {
+"Email": "ananya.sharma@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"ACL (associate)",
+"IEEE"
+],
+"AwardsAchievements": [
+"Best Demo Award at National NLP Meet 2022",
+"Young Researcher Fellowship (college) 2023"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+},
+{ "Faculty": 5,
+"Identity": {
+"Name": "Dr. Suresh Kothari",
+"FacultyID": "VCE-005",
+"Department": "Information Technology",
+"Designation": "Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Computer Science), JNTUH",
+"Experience": "20 years; roles: Lecturer, Assistant Professor, Professor, Head of Department",
+"AreasOfSpecialization": [
+"Computer Networks",
+"Cybersecurity",
+"Distributed Systems"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Networks",
+"Cybersecurity",
+"Distributed Systems",
+"Blockchain"
+],
+"Skills": [
+"Python",
+"C",
+"ns-3",
+"Wireshark",
+"Linux"
+],
+"ExpertiseTags": [
+"network-security",
+"intrusion-detection",
+"secure-protocols",
+"blockchain-apps"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Intrusion detection using federated learning",
+"Industry: Secure IoT gateway for smart homes"
+],
+"PublicationCount": 82,
+"CitationCount": 2500
+},
+"EngagementLayer": {
+"Email": "suresh.kothari@vardhaman.edu.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ACM"
+],
+"AwardsAchievements": [
+"Best Researcher Award (State University) 2015",
+"Patent: Secure IoT communication (granted)"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+},
+{ "Faculty": 6,
+"Identity": {
+"Name": "Dr. Ravi Teja",
+"FacultyID": "VCE-006",
+"Department": "Artificial Intelligence & Machine Learning",
+"Designation": "Assistant Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (AI), IIIT Hyderabad",
+"Experience": "5 years; roles: Research Associate, Assistant Professor",
+"AreasOfSpecialization": [
+"Deep Learning",
+"Computer Vision",
+"Medical Imaging"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"CV",
+"DL",
+"Medical Imaging"
+],
+"Skills": [
+"Python",
+"PyTorch",
+"OpenCV",
+"Keras",
+"CUDA"
+],
+"ExpertiseTags": [
+"convolutional-networks",
+"segmentation",
+"medical-image-analysis",
+"transfer-learning"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Automated retinal disease detection using deep learning",
+"Industry pilot: AI-assisted ultrasound analysis"
+],
+"PublicationCount": 14,
+"CitationCount": 260
+},
+"EngagementLayer": {
+"Email": "ravi.teja@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE"
+],
+"AwardsAchievements": [
+"Best Poster (ML in Healthcare) 2021",
+"Early Career Research Grant (college) 2024"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+},
+{ "Faculty": 7,
+"Identity": {
+"Name": "Dr. Lakshmi Narayan",
+"FacultyID": "VCE-007",
+"Department": "Data Science",
+"Designation": "Associate Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Statistics & Data Science), Osmania University",
+"Experience": "11 years; roles: Assistant Professor, Associate Professor",
+"AreasOfSpecialization": [
+"Data Analytics",
+"Statistical Learning",
+"Big Data"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Data Science",
+"Statistics",
+"Big Data"
+],
+"Skills": [
+"R",
+"Python",
+"Spark",
+"Hadoop",
+"Tableau"
+],
+"ExpertiseTags": [
+"predictive-modeling",
+"time-series",
+"causal-inference",
+"data-visualization"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Scalable anomaly detection for utility data",
+"Collab: Predictive analytics for student performance"
+],
+"PublicationCount": 22,
+"CitationCount": 480
+},
+"EngagementLayer": {
+"Email": "lakshmi.narayan@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"ISI",
+"ISTE"
+],
+"AwardsAchievements": [
+"Best Data Science Project (Regional) 2020",
+"Statistical Society Young Researcher Award 2018"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+},
+{ "Faculty": 8,
+"Identity": {
+"Name": "Prof. N. Praveen Kumar",
+"FacultyID": "VCE-008",
+"Department": "Electronics and Communication Engineering",
+"Designation": "Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (VLSI), IIT Madras",
+"Experience": "22 years; roles: Professor, HOD, Research Coordinator",
+"AreasOfSpecialization": [
+"VLSI Design",
+"ASIC Design",
+"Embedded Systems"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"VLSI",
+"ASIC",
+"Embedded Systems",
+"FPGA"
+],
+"Skills": [
+"Verilog",
+"VHDL",
+"Cadence",
+"ModelSim",
+"C"
+],
+"ExpertiseTags": [
+"low-power-vlsi",
+"asic-design",
+"hardware-accelerators",
+"fpga-prototyping"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"Industry: Low-power accelerator for edge-AI (prototype)",
+"Institute-funded: FPGA-based signal processing suite"
+],
+"PublicationCount": 110,
+"CitationCount": 4200
+},
+"EngagementLayer": {
+"Email": "n.praveenkumar@vardhaman.edu.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IET"
+],
+"AwardsAchievements": [
+"Lifetime Achievement (College) 2025",
+"Patent portfolio: 3 granted, 2 filed"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+},
+{ "Faculty": 9,
+"Identity": {
+"Name": "Dr. Meera Devi",
+"FacultyID": "VCE-009",
+"Department": "Computer Science and Engineering",
+"Designation": "Assistant Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Data Science), University of Hyderabad",
+"Experience": "4 years; roles: Postdoc, Assistant Professor",
+"AreasOfSpecialization": [
+"Recommender Systems",
+"Graph ML",
+"Explainable AI"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Graph ML",
+"Recommender Systems",
+"XAI"
+],
+"Skills": [
+"Python",
+"PyTorch Geometric",
+"NetworkX",
+"Hugging Face"
+],
+"ExpertiseTags": [
+"graph-embeddings",
+"explainability",
+"personalization",
+"evaluation-metrics"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"Institutional: Explainable recommendation for e-learning platforms",
+"Industry pilot: Personalized course recommender for MOOC partner"
+],
+"PublicationCount": 9,
+"CitationCount": 120
+},
+"EngagementLayer": {
+"Email": "meera.devi@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"ACM",
+"IEEE"
+],
+"AwardsAchievements": [
+"Best Young Researcher (College) 2024",
+"Research Travel Fellowship 2023"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+},
+{ "Faculty": 10,
+"Identity": {
+"Name": "Dr. Arjun Bhat",
+"FacultyID": "VCE-010",
+"Department": "Information Technology",
+"Designation": "Associate Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Cybersecurity), IIIT Hyderabad",
+"Experience": "13 years; roles: Research Fellow, Assistant Professor, Associate Professor",
+"AreasOfSpecialization": [
+"Cybersecurity",
+"Forensics",
+"Secure Systems"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Cybersecurity",
+"Digital Forensics",
+"Privacy"
+],
+"Skills": [
+"Python",
+"C",
+"Ghidra",
+"Wireshark",
+"Docker"
+],
+"ExpertiseTags": [
+"malware-analysis",
+"secure-architecture",
+"privacy-preserving-ml"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"DST-funded: Privacy-preserving ML for healthcare data",
+"Industry: Forensic toolkit for mobile devices"
+],
+"PublicationCount": 45,
+"CitationCount": 980
+},
+"EngagementLayer": {
+"Email": "arjun.bhat@vardhaman.edu.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IACR (associate)"
+],
+"AwardsAchievements": [
+"Young Investigator Award 2017",
+"Patent: Mobile device forensic method"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+},
+{ "Faculty": 11,
+"Identity": {
+"Name": "Dr. Pavani Reddy",
+"FacultyID": "VCE-011",
+"Department": "Artificial Intelligence & Machine Learning",
+"Designation": "Assistant Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (AI), JNTUH",
+"Experience": "7 years; roles: Research Associate, Assistant Professor",
+"AreasOfSpecialization": [
+"Federated Learning",
+"Distributed ML",
+"Edge AI"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Federated Learning",
+"Edge AI",
+"Distributed Systems"
+],
+"Skills": [
+"Python",
+"TensorFlow Federated",
+"Docker",
+"Kubernetes"
+],
+"ExpertiseTags": [
+"privacy-preserving",
+"edge-deployment",
+"model-optimization"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Federated learning for rural healthcare diagnostics",
+"Industry: Lightweight models for edge devices"
+],
+"PublicationCount": 16,
+"CitationCount": 210
+},
+"EngagementLayer": {
+"Email": "pavani.reddy@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ISTE"
+],
+"AwardsAchievements": [
+"Best PhD Thesis Award (University) 2019",
+"Early Career Research Grant 2022"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+},
+{ "Faculty": 12,
+"Identity": {
+"Name": "Prof. D. Venkatesh",
+"FacultyID": "VCE-012",
+"Department": "Computer Science and Engineering",
+"Designation": "Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Algorithms), IIT Hyderabad",
+"Experience": "25 years; roles: Lecturer, Professor, Dean (R&D)",
+"AreasOfSpecialization": [
+"Algorithms",
+"Theoretical Computer Science",
+"High-performance Computing"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Algorithms",
+"HPC",
+"Theoretical CS"
+],
+"Skills": [
+"C++",
+"MPI",
+"CUDA",
+"Python"
+],
+"ExpertiseTags": [
+"approximation-algorithms",
+"parallel-algorithms",
+"complexity-theory"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"Government: Parallel algorithms for large-scale graph processing",
+"Institutional: HPC curriculum development"
+],
+"PublicationCount": 150,
+"CitationCount": 7600
+},
+"EngagementLayer": {
+"Email": "d.venkatesh@vardhaman.edu.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ACM"
+],
+"AwardsAchievements": [
+"State Science Academy Fellowship 2020",
+"Distinguished Faculty Award 2018"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+}
+]
