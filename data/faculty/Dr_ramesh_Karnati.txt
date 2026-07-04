@@ -1,0 +1,94 @@
+Name:
+Dr. Ramesh Karnati
+
+Department:
+Computer Science and Engineering
+
+Designation:
+Professor & HOD
+
+Qualification:
+Ph.D, National Institute of Technology, Warangal
+M.Tech, Andhra University College of Engineering (Autonomous)
+B.Tech, Lenora College of Engineering, affiliated to JNTUH
+
+Areas of Specialization:
+Computer Science, Artificial Intelligence
+Artificial Intelligence, Machine Learning, Data Mining and IoT
+
+Research Interests:
+Artificial Intelligence, Machine Learning, Data Mining and IoT
+
+Research Areas:
+No separate "Research Areas" section distinct from Expertise is listed on the official IRINS profile page. See Areas of Specialization above.
+
+Subjects Taught:
+No subjects taught information is listed on the official faculty/IRINS page.
+
+Current Projects:
+No current projects are listed on the official faculty page.
+
+Publications:
+The official IRINS profile lists publication counts by category rather than individual titles: 15 Journal Articles, 5 Conference Proceedings, plus additional entries in two further uncategorized publication groups, spanning the period 2013 - 2024. Individual publication titles, journal names, and years are not displayed in extractable form on the profile page; a Google Scholar link is provided on the profile for full publication listings (see Google Scholar field below).
+
+Patents:
+No patent information is listed on the official faculty page (Patents section present but empty).
+
+Books:
+No book information is listed on the official faculty page.
+
+Professional Memberships:
+IEEE (2022, One Year membership)
+IAENG - International Association of Engineers (2021, Life Member)
+Computer Society of India (2021, Life Member)
+
+Experience:
+Head of the Department, Computer Science and Engineering, Vardhaman College of Engineering
+Associate Professor, Information Technology, Vardhaman College of Engineering
+Associate Professor, Computer Science and Engineering, TKR College of Engineering and Technology
+Research Scholar, Department of Computer Science and Engineering, National Institute of Technology, Warangal
+Assistant Professor, CSE, Lakireddy Bali Reddy College of Engineering (Autonomous)
+Assistant Professor, CSE, Narasaraopeta Institute of Technology, Kotappakonda Road, Yellamanda (P.O), Narasaraopet
+
+Awards / Achievements:
+Fellowship from TCS-TCSRSP, Tata Consultancy Services & MHRD, 2010
+Fellowship, AICTE, 2007
+
+Membership in Committees (as listed on official profile):
+BOS Member, Vardhaman College of Engineering, 2019
+Reviewer, World Scientific-JIKM, 2018
+BOS Member, TKR College of Engineering, 2016
+
+Email:
+No email address is listed on the official faculty page.
+
+Phone:
+No phone number is listed on the official faculty page.
+
+Cabin / Office:
+Department of Information Technology, Vardhaman College of Engineering, Kacharam Village, Shamshabad, Hyderabad, Telangana, India - 501218
+
+Google Scholar:
+A Google Scholar profile link is present on the official IRINS profile page (linked icon), but the destination URL text itself is not extractable from the rendered page content.
+
+Scopus:
+No Scopus profile is linked on the official faculty page.
+
+ORCID:
+No ORCID is linked on the official faculty page.
+
+ResearchGate:
+No ResearchGate profile is linked on the official faculty page.
+
+LinkedIn:
+No LinkedIn profile is linked on the official faculty page.
+
+Personal Website:
+No personal website is linked on the official faculty page.
+
+Any Other Available Information:
+Citation metrics listed on the official IRINS profile: 22 Citations, 3 h-index, with an additional 6 Citations shown in a secondary metrics block. A "Co-author Network" visualization link is also present on the profile.
+
+Source URL:
+https://cse.vardhaman.org/faculty/ (official department faculty listing, linking to IRINS profile)
+https://vardhaman.irins.org/profile/240344 (official Vardhaman IRINS research profile, linked directly from the CSE faculty page above)

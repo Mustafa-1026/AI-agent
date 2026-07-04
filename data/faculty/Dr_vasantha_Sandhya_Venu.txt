@@ -1,0 +1,88 @@
+Name:
+Dr. Vasantha Sandhya Venu (listed on the CSE department page as Dr. S. V. Vasantha)
+
+Department:
+Computer Science and Engineering
+
+Designation:
+Associate Professor
+
+Qualification:
+PhD, Jawaharlal Nehru Technological University
+
+Areas of Specialization:
+Computer Science Interdisciplinary SCI
+Research Interest includes mobile computing, network security, data science, machine learning, agri-genomics, bioinformatics
+
+Research Interests:
+Mobile computing, network security, data science, machine learning, agri-genomics, bioinformatics
+
+Research Areas:
+No separate "Research Areas" section distinct from Expertise is listed on the official IRINS profile page. See Areas of Specialization above.
+
+Subjects Taught:
+No subjects taught information is listed on the official faculty/IRINS page.
+
+Current Projects:
+No current projects are listed on the official faculty page.
+
+Publications:
+The official IRINS profile lists publication counts by category rather than individual titles, spanning 2014 - 2025: 19 Journal Articles, 1 Book Chapter, 1 Book, 28 Conference Proceedings, and 6 entries in a further Book-chapter category. Individual publication titles, journal names, and specific years are not displayed in extractable form on the profile page; a Google Scholar link is provided on the profile for full publication listings.
+
+Patents:
+No patent information is listed on the official faculty page (Patents section present but empty).
+
+Books:
+The official profile indicates 1 Book and additional Book-chapter entries among the publication counts (see Publications above), but individual book titles are not listed in extractable form.
+
+Professional Memberships:
+IEEE (2022, IEEE Membership - Annual)
+ISTE (2022, Life Member)
+
+Experience:
+Associate Professor, Computer Science and Engineering, Vardhaman College of Engineering
+
+Awards / Achievements:
+Topper with Silver Medal in Statistics for Biomedical Engineers course, SWAYAM NPTEL, 2024
+Silver Medal in Programming, Data Structures and Algorithms using Python, NPTEL, 2023
+Gold Medal in Machine Learning for Soil and Crop Management Course, NPTEL, 2022
+Best Paper Award for the Research Paper presented at an International Conference (ICDAM-2021), International Conference on Data Analytics & Management, 2021
+National Eminent Researcher Award, I2OR, Registered MSME with Ministry of MSME, Govt of India, 2021
+Silver Medal in Cryptography and Network Security Course, NPTEL, 2019
+
+Membership in Committees (as listed on official profile):
+Reviewer, Reviewer committee of International Conference ICACECS-2022, 2022
+
+Email:
+No email address is listed on the official faculty page.
+
+Phone:
+No phone number is listed on the official faculty page.
+
+Cabin / Office:
+Vardhaman College of Engineering, Shamshabad, Hyderabad, Telangana, India - 501218
+
+Google Scholar:
+A Google Scholar profile link is present on the official IRINS profile page (linked icon), but the destination URL text itself is not extractable from the rendered page content.
+
+Scopus:
+No Scopus profile is linked on the official faculty page.
+
+ORCID:
+No ORCID is linked on the official faculty page.
+
+ResearchGate:
+No ResearchGate profile is linked on the official faculty page.
+
+LinkedIn:
+No LinkedIn profile is linked on the official faculty page.
+
+Personal Website:
+No personal website is linked on the official faculty page.
+
+Any Other Available Information:
+Citation metrics listed on the official IRINS profile: 10 Citations, 2 h-index. A "Co-author Network" visualization link is also present on the profile. Gender listed as Female.
+
+Source URL:
+https://cse.vardhaman.org/faculty/ (official department faculty listing, linking to IRINS profile)
+https://vardhaman.irins.org/profile/273166 (official Vardhaman IRINS research profile, linked directly from the CSE faculty page above)
