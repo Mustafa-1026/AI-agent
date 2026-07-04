@@ -1,0 +1,65 @@
+{ "Faculty": 8,
+"Identity": {
+"Name": "Prof. N. Praveen Kumar",
+"FacultyID": "VCE-008",
+"Department": "Electronics and Communication Engineering",
+"Designation": "Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (VLSI), IIT Madras",
+"Experience": "22 years; roles: Professor, HOD, Research Coordinator",
+"AreasOfSpecialization": [
+"VLSI Design",
+"ASIC Design",
+"Embedded Systems"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"VLSI",
+"ASIC",
+"Embedded Systems",
+"FPGA"
+],
+"Skills": [
+"Verilog",
+"VHDL",
+"Cadence",
+"ModelSim",
+"C"
+],
+"ExpertiseTags": [
+"low-power-vlsi",
+"asic-design",
+"hardware-accelerators",
+"fpga-prototyping"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"Industry: Low-power accelerator for edge-AI (prototype)",
+"Institute-funded: FPGA-based signal processing suite"
+],
+"PublicationCount": 110,
+"CitationCount": 4200
+},
+"EngagementLayer": {
+"Email": "n.praveenkumar@vardhaman.edu.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IET"
+],
+"AwardsAchievements": [
+"Lifetime Achievement (College) 2025",
+"Patent portfolio: 3 granted, 2 filed"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+}

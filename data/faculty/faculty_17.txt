@@ -1,0 +1,62 @@
+{ "Faculty": 17,
+"Identity": {
+"Name": "Dr. Neha Joshi",
+"FacultyID": "IIITH-002",
+"Department": "Computer Science",
+"Designation": "Assistant Professor",
+"Institution": "IIIT Hyderabad"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (NLP), IIIT Hyderabad",
+"Experience": "8 years; roles: Postdoc, Assistant Professor",
+"AreasOfSpecialization": [
+"NLP",
+"Low-resource Languages",
+"Speech Processing"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"NLP",
+"Speech",
+"Low-Resource NLP"
+],
+"Skills": [
+"Python",
+"Kaldi",
+"PyTorch",
+"Hugging Face"
+],
+"ExpertiseTags": [
+"multilingual-nlp",
+"speech-recognition",
+"data-augmentation"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"MeitY: Multilingual ASR for Indian languages",
+"Collaborative: Benchmarking low-resource NLP datasets"
+],
+"PublicationCount": 55,
+"CitationCount": 2200
+},
+"EngagementLayer": {
+"Email": "neha.joshi@iiit.ac.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"ACL",
+"IEEE"
+],
+"AwardsAchievements": [
+"Best Workshop Paper ACL 2021",
+"Industry fellowship (speech) 2020"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

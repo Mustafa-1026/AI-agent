@@ -1,0 +1,62 @@
+{ "Faculty": 23,
+"Identity": {
+"Name": "Dr. Amrita Sen",
+"FacultyID": "OSM-003",
+"Department": "Computer Science",
+"Designation": "Associate Professor",
+"Institution": "Osmania University"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Computer Vision), University of Hyderabad",
+"Experience": "10 years; roles: Assistant Professor, Associate Professor",
+"AreasOfSpecialization": [
+"Computer Vision",
+"Medical Imaging",
+"Deep Learning"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"CV",
+"Medical Imaging",
+"DL"
+],
+"Skills": [
+"Python",
+"PyTorch",
+"OpenCV",
+"Keras"
+],
+"ExpertiseTags": [
+"medical-image-segmentation",
+"classification",
+"transfer-learning"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"State-funded: Automated pathology slide analysis",
+"Industry: Pilot for AI diagnostics in primary health centres"
+],
+"PublicationCount": 58,
+"CitationCount": 2300
+},
+"EngagementLayer": {
+"Email": "amrita.sen@osmania.ac.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IET"
+],
+"AwardsAchievements": [
+"Best Paper (Medical Imaging) 2019",
+"Institutional Teaching Excellence 2017"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

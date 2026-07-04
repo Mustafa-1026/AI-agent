@@ -1,0 +1,62 @@
+{ "Faculty": 13,
+"Identity": {
+"Name": "Dr. Sandeep Kumar",
+"FacultyID": "JNTUH-001",
+"Department": "Computer Science and Engineering",
+"Designation": "Associate Professor",
+"Institution": "JNTUH"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (CSE), JNTUH",
+"Experience": "15 years; roles: Assistant Professor, Associate Professor",
+"AreasOfSpecialization": [
+"Machine Learning",
+"Cloud Computing",
+"Big Data"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"ML",
+"Cloud",
+"Big Data"
+],
+"Skills": [
+"Python",
+"Spark",
+"Hadoop",
+"TensorFlow"
+],
+"ExpertiseTags": [
+"scalable-ml",
+"distributed-data-processing",
+"model-deployment"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"UGC: Scalable ML pipelines for government records",
+"Industry: Cloud-based analytics for logistics"
+],
+"PublicationCount": 48,
+"CitationCount": 1100
+},
+"EngagementLayer": {
+"Email": "sandeep.kumar@jntuh.ac.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ISTE"
+],
+"AwardsAchievements": [
+"Best Paper (International Conference) 2019",
+"Research Excellence Award 2021"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

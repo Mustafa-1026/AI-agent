@@ -1,0 +1,62 @@
+{ "Faculty": 20,
+"Identity": {
+"Name": "Prof. K. Venkataramana",
+"FacultyID": "OSM-002",
+"Department": "Electrical Engineering",
+"Designation": "Professor",
+"Institution": "Osmania University"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Power Electronics), Osmania University",
+"Experience": "21 years; roles: Professor, Research Director",
+"AreasOfSpecialization": [
+"Power Electronics",
+"Renewable Energy Systems",
+"Control Systems"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Power Electronics",
+"Renewables",
+"Control"
+],
+"Skills": [
+"MATLAB/Simulink",
+"PSCAD",
+"C",
+"Python"
+],
+"ExpertiseTags": [
+"mppt",
+"converter-control",
+"grid-tied-inverters"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"SERB: Control strategies for grid-connected solar inverters",
+"State: Rural microgrid deployment study"
+],
+"PublicationCount": 130,
+"CitationCount": 7100
+},
+"EngagementLayer": {
+"Email": "k.venkataramana@osmania.ac.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IEI"
+],
+"AwardsAchievements": [
+"University Distinguished Service Award 2019",
+"State Renewable Innovation Prize 2017"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

@@ -1,0 +1,64 @@
+{ "Faculty": 3,
+"Identity": {
+"Name": "Prof. M. Raghava Rao",
+"FacultyID": "VCE-003",
+"Department": "Electrical and Electronics Engineering",
+"Designation": "Associate Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Power Systems), Osmania University",
+"Experience": "14 years; roles: Assistant Professor, Associate Professor",
+"AreasOfSpecialization": [
+"Power Systems",
+"Smart Grids",
+"Power Electronics"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Power Systems",
+"Smart Grid",
+"Renewable Integration",
+"Power Electronics"
+],
+"Skills": [
+"MATLAB/Simulink",
+"PSCAD",
+"ETAP",
+"Python"
+],
+"ExpertiseTags": [
+"load-flow",
+"distributed-generation",
+"grid-integration",
+"inverter-control"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Adaptive control of converters for renewable integration",
+"State-funded project: Microgrid stability assessment for rural electrification"
+],
+"PublicationCount": 34,
+"CitationCount": 760
+},
+"EngagementLayer": {
+"Email": "m.raghavarao@vardhaman.edu.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IEI"
+],
+"AwardsAchievements": [
+"Young Engineer Award (State) 2016",
+"Best Project Guide 2020"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+}

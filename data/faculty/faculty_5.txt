@@ -1,0 +1,65 @@
+{ "Faculty": 5,
+"Identity": {
+"Name": "Dr. Suresh Kothari",
+"FacultyID": "VCE-005",
+"Department": "Information Technology",
+"Designation": "Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Computer Science), JNTUH",
+"Experience": "20 years; roles: Lecturer, Assistant Professor, Professor, Head of Department",
+"AreasOfSpecialization": [
+"Computer Networks",
+"Cybersecurity",
+"Distributed Systems"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Networks",
+"Cybersecurity",
+"Distributed Systems",
+"Blockchain"
+],
+"Skills": [
+"Python",
+"C",
+"ns-3",
+"Wireshark",
+"Linux"
+],
+"ExpertiseTags": [
+"network-security",
+"intrusion-detection",
+"secure-protocols",
+"blockchain-apps"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Intrusion detection using federated learning",
+"Industry: Secure IoT gateway for smart homes"
+],
+"PublicationCount": 82,
+"CitationCount": 2500
+},
+"EngagementLayer": {
+"Email": "suresh.kothari@vardhaman.edu.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ACM"
+],
+"AwardsAchievements": [
+"Best Researcher Award (State University) 2015",
+"Patent: Secure IoT communication (granted)"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+}

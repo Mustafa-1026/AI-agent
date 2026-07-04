@@ -1,0 +1,62 @@
+{ "Faculty": 19,
+"Identity": {
+"Name": "Dr. Shalini Gupta",
+"FacultyID": "BITS-002",
+"Department": "Computer Science",
+"Designation": "Associate Professor",
+"Institution": "BITS Hyderabad"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (AI), University of Cambridge",
+"Experience": "11 years; roles: Research Scientist, Associate Professor",
+"AreasOfSpecialization": [
+"Reinforcement Learning",
+"Multi-agent Systems",
+"Planning"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"RL",
+"Multi-agent",
+"Planning"
+],
+"Skills": [
+"Python",
+"PyTorch",
+"OpenAI Gym",
+"C++"
+],
+"ExpertiseTags": [
+"policy-learning",
+"sim-to-real",
+"multi-agent-coordination"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"SERB: Multi-agent coordination for traffic optimisation",
+"Industry: RL-based scheduler for cloud resource allocation"
+],
+"PublicationCount": 95,
+"CitationCount": 4300
+},
+"EngagementLayer": {
+"Email": "shalini.gupta@bits-hyderabad.ac.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ACM"
+],
+"AwardsAchievements": [
+"Google Faculty Research Award 2020",
+"Best Paper (ICML workshop) 2018"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

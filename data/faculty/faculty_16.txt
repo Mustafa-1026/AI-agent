@@ -1,0 +1,62 @@
+{ "Faculty": 16,
+"Identity": {
+"Name": "Prof. S. Mahesh",
+"FacultyID": "IIITH-001",
+"Department": "Computer Science",
+"Designation": "Associate Professor",
+"Institution": "IIIT Hyderabad"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Machine Learning), University of California",
+"Experience": "12 years; roles: Research Scientist, Associate Professor",
+"AreasOfSpecialization": [
+"Machine Learning",
+"Computer Vision",
+"Robotics"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"ML",
+"CV",
+"Robotics"
+],
+"Skills": [
+"Python",
+"PyTorch",
+"ROS",
+"C++"
+],
+"ExpertiseTags": [
+"self-supervised-learning",
+"visual-perception",
+"robot-control"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"DST-SERB: Self-supervised perception for low-data robotics",
+"Industry: Vision pipeline for warehouse robots"
+],
+"PublicationCount": 120,
+"CitationCount": 5600
+},
+"EngagementLayer": {
+"Email": "s.mahesh@iiit.ac.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ACM"
+],
+"AwardsAchievements": [
+"Early Career Award (National) 2015",
+"Google Faculty Research Award 2019"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

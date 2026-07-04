@@ -1,0 +1,62 @@
+{ "Faculty": 24,
+"Identity": {
+"Name": "Prof. Vivek Nair",
+"FacultyID": "IIITH-004",
+"Department": "Computer Science",
+"Designation": "Professor",
+"Institution": "IIIT Hyderabad"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (AI), MIT",
+"Experience": "26 years; roles: Professor, Centre Director",
+"AreasOfSpecialization": [
+"Artificial Intelligence",
+"Machine Learning",
+"Computational Neuroscience"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"AI",
+"ML",
+"Computational Neuroscience"
+],
+"Skills": [
+"Python",
+"TensorFlow",
+"PyTorch",
+"MATLAB"
+],
+"ExpertiseTags": [
+"deep-learning",
+"brain-inspired-computing",
+"representation-learning"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"DST: Brain-inspired models for continual learning",
+"International: Cross-modal representation learning with industry partner"
+],
+"PublicationCount": 320,
+"CitationCount": 40000
+},
+"EngagementLayer": {
+"Email": "vivek.nair@iiit.ac.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ACM"
+],
+"AwardsAchievements": [
+"Shanti Swarup Bhatnagar Prize nominee (recent)",
+"Multiple national awards and fellowships"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

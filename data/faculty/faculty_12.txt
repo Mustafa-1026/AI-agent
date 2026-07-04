@@ -1,0 +1,62 @@
+{ "Faculty": 12,
+"Identity": {
+"Name": "Prof. D. Venkatesh",
+"FacultyID": "VCE-012",
+"Department": "Computer Science and Engineering",
+"Designation": "Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Algorithms), IIT Hyderabad",
+"Experience": "25 years; roles: Lecturer, Professor, Dean (R&D)",
+"AreasOfSpecialization": [
+"Algorithms",
+"Theoretical Computer Science",
+"High-performance Computing"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Algorithms",
+"HPC",
+"Theoretical CS"
+],
+"Skills": [
+"C++",
+"MPI",
+"CUDA",
+"Python"
+],
+"ExpertiseTags": [
+"approximation-algorithms",
+"parallel-algorithms",
+"complexity-theory"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"Government: Parallel algorithms for large-scale graph processing",
+"Institutional: HPC curriculum development"
+],
+"PublicationCount": 150,
+"CitationCount": 7600
+},
+"EngagementLayer": {
+"Email": "d.venkatesh@vardhaman.edu.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ACM"
+],
+"AwardsAchievements": [
+"State Science Academy Fellowship 2020",
+"Distinguished Faculty Award 2018"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+}

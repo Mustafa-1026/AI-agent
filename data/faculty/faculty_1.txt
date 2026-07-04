@@ -1,0 +1,66 @@
+{ "Faculty": 1,
+"Identity": {
+"Name": "Dr. K. Srinivas Reddy",
+"FacultyID": "VCE-001",
+"Department": "Computer Science and Engineering",
+"Designation": "Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (CSE), IISc Bangalore",
+"Experience": "18 years; roles: Assistant Professor, Associate Professor, Professor",
+"AreasOfSpecialization": [
+"Artificial Intelligence",
+"Machine Learning",
+"Data Mining"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"AI",
+"ML",
+"Data Mining",
+"Knowledge Representation"
+],
+"Skills": [
+"Python",
+"TensorFlow",
+"scikit-learn",
+"SQL",
+"R"
+],
+"ExpertiseTags": [
+"supervised-learning",
+"unsupervised-learning",
+"classification",
+"feature-engineering",
+"research-methods"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Explainable ML for Educational Analytics",
+"Industry collaboration: Predictive Maintenance using ML for local manufacturing"
+],
+"PublicationCount": 65,
+"CitationCount": 1400
+},
+"EngagementLayer": {
+"Email": "k.srinivasreddy@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ISTE"
+],
+"AwardsAchievements": [
+"Best Paper at National Conference on AI 2018",
+"Vardhaman Research Excellence Award 2021"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+}
