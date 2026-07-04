@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from sentence_transformers import SentenceTransformer
 
 # load model once
@@ -35,10 +35,10 @@ def process_profiles(data):
         })
 
     return processed
-=======
+
 """
 embedder.py
-===========
+
 
 Embedding generation module for the AI-powered Faculty Intelligence &
 Research Discovery System.
@@ -478,4 +478,4 @@ if __name__ == "__main__":
         print("Document:\n", processed[0]["document"])
         print("\nMetadata:\n", processed[0]["metadata"])
         print("\nEmbedding length:", len(processed[0]["embedding"]))
->>>>>>> 245bcf6f1d3b7adf0ad9b9f9f243be8bbc264edc
+

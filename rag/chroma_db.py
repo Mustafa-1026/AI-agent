@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 """
 chroma_db.py
 ============
@@ -50,7 +49,6 @@ Author: AI Agent Hackathon Team
 
 from __future__ import annotations
 
->>>>>>> 245bcf6f1d3b7adf0ad9b9f9f243be8bbc264edc
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -59,7 +57,6 @@ from chromadb.api.models.Collection import Collection
 from chromadb.api.client import Client as ChromaClient
 
 
-<<<<<<< HEAD
 # -----------------------------
 # CONFIG
 # -----------------------------
@@ -75,13 +72,13 @@ _collection_cache: Optional[Collection] = None
 # -----------------------------
 def initialize_client(persist_directory: Optional[Path] = None):
 
-=======
+
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
 
 #: Name of the ChromaDB collection used for faculty data.
-COLLECTION_NAME: str = "faculty_knowledge_base"
+    COLLECTION_NAME: str = "faculty_knowledge_base"
 
 #: Directory where ChromaDB will persist its data on disk.
 DEFAULT_PERSIST_DIRECTORY: Path = Path("chroma_store")
@@ -115,13 +112,12 @@ def initialize_client(
     Returns:
         A chromadb PersistentClient instance.
     """
->>>>>>> 245bcf6f1d3b7adf0ad9b9f9f243be8bbc264edc
     global _client_cache
 
     if _client_cache is not None:
         return _client_cache
 
-<<<<<<< HEAD
+
     directory = persist_directory or DEFAULT_PERSIST_DIRECTORY
     directory.mkdir(parents=True, exist_ok=True)
 
@@ -195,7 +191,6 @@ def count_documents(collection=None):
     collection = collection or get_collection()
 
     return collection.count()
-=======
     directory = Path(persist_directory) if persist_directory else DEFAULT_PERSIST_DIRECTORY
 
     try:
@@ -495,4 +490,4 @@ if __name__ == "__main__":
     db_client = initialize_client()
     faculty_collection = create_collection(client=db_client)
     print(f"Current document count: {count_documents(faculty_collection)}")
->>>>>>> 245bcf6f1d3b7adf0ad9b9f9f243be8bbc264edc
+

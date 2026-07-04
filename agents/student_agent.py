@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from agents.project_suggestions import suggest_projects
 
 
@@ -103,7 +103,6 @@ if __name__ == "__main__":
 
     name = input("\nEnter faculty name: ")
     tell_about_faculty(name, rag_results)
-=======
 """
 student_agent.py
 =================
@@ -936,4 +935,4 @@ if __name__ == "__main__":
             print(warning)
         for project in response["projects"]:
             print(f"- {project['title']} (with {project['related_faculty']})")
->>>>>>> 245bcf6f1d3b7adf0ad9b9f9f243be8bbc264edc
+
