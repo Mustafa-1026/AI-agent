@@ -1,0 +1,64 @@
+{ "Faculty": 4,
+"Identity": {
+"Name": "Dr. Ananya Sharma",
+"FacultyID": "VCE-004",
+"Department": "Computer Science and Engineering",
+"Designation": "Assistant Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (CSE), IIIT Hyderabad",
+"Experience": "6 years; roles: Assistant Professor, Postdoc (contract)",
+"AreasOfSpecialization": [
+"Natural Language Processing",
+"Information Retrieval",
+"Conversational AI"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"NLP",
+"IR",
+"Dialogue Systems"
+],
+"Skills": [
+"Python",
+"PyTorch",
+"Hugging Face",
+"NLTK",
+"SpaCy"
+],
+"ExpertiseTags": [
+"transformers",
+"question-answering",
+"intent-detection",
+"semantic-search"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"Institutional: Chatbot for student services using transformer models",
+"Industry-funded: Domain-adaptive QA for legal documents"
+],
+"PublicationCount": 18,
+"CitationCount": 320
+},
+"EngagementLayer": {
+"Email": "ananya.sharma@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"ACL (associate)",
+"IEEE"
+],
+"AwardsAchievements": [
+"Best Demo Award at National NLP Meet 2022",
+"Young Researcher Fellowship (college) 2023"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+}

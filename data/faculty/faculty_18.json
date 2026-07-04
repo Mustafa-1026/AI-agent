@@ -1,0 +1,62 @@
+{ "Faculty": 18,
+"Identity": {
+"Name": "Prof. Arvind Reddy",
+"FacultyID": "BITS-001",
+"Department": "Electronics & Communication",
+"Designation": "Professor",
+"Institution": "BITS Hyderabad"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (VLSI), IISc Bangalore",
+"Experience": "24 years; roles: Professor, Centre Chair",
+"AreasOfSpecialization": [
+"VLSI",
+"Neuromorphic Computing",
+"Hardware Accelerators"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"VLSI",
+"Neuromorphic",
+"Hardware-Accelerators"
+],
+"Skills": [
+"Verilog",
+"Cadence",
+"Python",
+"TensorFlow"
+],
+"ExpertiseTags": [
+"neuromorphic-chips",
+"hardware-ml",
+"analog-vlsi"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"DST: Neuromorphic accelerator for edge-sensing",
+"Industry: ASIC for energy-efficient inference"
+],
+"PublicationCount": 200,
+"CitationCount": 12500
+},
+"EngagementLayer": {
+"Email": "arvind.reddy@bits-hyderabad.ac.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IET"
+],
+"AwardsAchievements": [
+"National Technology Award 2019",
+"Multiple patents (5) in hardware accelerators"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

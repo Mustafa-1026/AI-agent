@@ -1,0 +1,62 @@
+{ "Faculty": 14,
+"Identity": {
+"Name": "Prof. Kavita Nair",
+"FacultyID": "JNTUH-002",
+"Department": "Electronics and Communication Engineering",
+"Designation": "Professor",
+"Institution": "JNTUH"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (ECE), IIT Bombay",
+"Experience": "20 years; roles: Professor, HOD",
+"AreasOfSpecialization": [
+"Wireless Communications",
+"5G/6G",
+"Antenna Design"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Wireless",
+"Antenna",
+"5G"
+],
+"Skills": [
+"HFSS",
+"MATLAB",
+"CST",
+"Python"
+],
+"ExpertiseTags": [
+"mimo-systems",
+"beamforming",
+"antenna-design"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"DST: Millimetre-wave beamforming for 6G",
+"Industry: Compact antenna arrays for wearable devices"
+],
+"PublicationCount": 170,
+"CitationCount": 8200
+},
+"EngagementLayer": {
+"Email": "kavita.nair@jntuh.ac.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IET"
+],
+"AwardsAchievements": [
+"National Science Merit Award 2020",
+"Fellow, State Engineering Academy"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

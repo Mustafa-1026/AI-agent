@@ -1,0 +1,62 @@
+{ "Faculty": 21,
+"Identity": {
+"Name": "Dr. Priyanka Rao",
+"FacultyID": "IIITH-003",
+"Department": "Computer Science",
+"Designation": "Assistant Professor",
+"Institution": "IIIT Hyderabad"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Security), IIIT Hyderabad",
+"Experience": "9 years; roles: Research Fellow, Assistant Professor",
+"AreasOfSpecialization": [
+"Privacy-preserving ML",
+"Adversarial ML",
+"Network Security"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Privacy",
+"Adversarial ML",
+"Network Security"
+],
+"Skills": [
+"Python",
+"TensorFlow",
+"Scapy",
+"PyTorch"
+],
+"ExpertiseTags": [
+"differential-privacy",
+"adversarial-attacks",
+"secure-ml"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"MeitY: Adversarial robustness for healthcare ML",
+"Industry: Secure pipeline for sensitive logs"
+],
+"PublicationCount": 60,
+"CitationCount": 2100
+},
+"EngagementLayer": {
+"Email": "priyanka.rao@iiit.ac.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IACR (associate)"
+],
+"AwardsAchievements": [
+"Best PhD Thesis Runner-up 2018",
+"Industry Fellowship 2021"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

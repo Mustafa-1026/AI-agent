@@ -1,0 +1,63 @@
+{ "Faculty": 10,
+"Identity": {
+"Name": "Dr. Arjun Bhat",
+"FacultyID": "VCE-010",
+"Department": "Information Technology",
+"Designation": "Associate Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Cybersecurity), IIIT Hyderabad",
+"Experience": "13 years; roles: Research Fellow, Assistant Professor, Associate Professor",
+"AreasOfSpecialization": [
+"Cybersecurity",
+"Forensics",
+"Secure Systems"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Cybersecurity",
+"Digital Forensics",
+"Privacy"
+],
+"Skills": [
+"Python",
+"C",
+"Ghidra",
+"Wireshark",
+"Docker"
+],
+"ExpertiseTags": [
+"malware-analysis",
+"secure-architecture",
+"privacy-preserving-ml"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"DST-funded: Privacy-preserving ML for healthcare data",
+"Industry: Forensic toolkit for mobile devices"
+],
+"PublicationCount": 45,
+"CitationCount": 980
+},
+"EngagementLayer": {
+"Email": "arjun.bhat@vardhaman.edu.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IACR (associate)"
+],
+"AwardsAchievements": [
+"Young Investigator Award 2017",
+"Patent: Mobile device forensic method"
+]
+},
+"SystemMetadata": {
+"DataSource": "hybrid",
+"LastUpdated": "2026"
+}
+}

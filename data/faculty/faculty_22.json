@@ -1,0 +1,62 @@
+{ "Faculty": 22,
+"Identity": {
+"Name": "Prof. Hari Om",
+"FacultyID": "JNTUH-003",
+"Department": "Mechanical Engineering",
+"Designation": "Professor",
+"Institution": "JNTUH"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Robotics), IIT Kharagpur",
+"Experience": "19 years; roles: Professor, Robotics Lab Head",
+"AreasOfSpecialization": [
+"Robotics",
+"Control Systems",
+"Automation"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Robotics",
+"Control",
+"Automation"
+],
+"Skills": [
+"ROS",
+"MATLAB",
+"C++",
+"Python"
+],
+"ExpertiseTags": [
+"robot-control",
+"path-planning",
+"automation-systems"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"DST: Autonomous inspection robots for industrial plants",
+"Industry: Robotic arm controller for assembly lines"
+],
+"PublicationCount": 140,
+"CitationCount": 6800
+},
+"EngagementLayer": {
+"Email": "hari.om@jntuh.ac.in",
+"MentorshipAvailability": "No"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ASME"
+],
+"AwardsAchievements": [
+"National Robotics Award 2018",
+"Best Lab (University) 2022"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

@@ -1,0 +1,65 @@
+{ "Faculty": 2,
+"Identity": {
+"Name": "Dr. Priya Chaitanya",
+"FacultyID": "VCE-002",
+"Department": "Electronics and Communication Engineering",
+"Designation": "Associate Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (ECE), JNTUH",
+"Experience": "12 years; roles: Assistant Professor, Associate Professor",
+"AreasOfSpecialization": [
+"Signal Processing",
+"Wireless Communications",
+"Embedded Systems"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"DSP",
+"Wireless",
+"Embedded Systems",
+"IoT"
+],
+"Skills": [
+"MATLAB",
+"C/C++",
+"Embedded C",
+"GNU Radio",
+"Simulink"
+],
+"ExpertiseTags": [
+"digital-signal-processing",
+"mimo",
+"wireless-protocols",
+"sensor-networks"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Low-power DSP architectures for IoT sensors",
+"Industry: Prototype of LoRa-based agricultural monitoring"
+],
+"PublicationCount": 28,
+"CitationCount": 420
+},
+"EngagementLayer": {
+"Email": "priya.chaitanya@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"IET"
+],
+"AwardsAchievements": [
+"Best Teacher Award (Vardhaman) 2019",
+"Travel grant by IEEE SPS 2017"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+}

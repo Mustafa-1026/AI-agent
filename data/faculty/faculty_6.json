@@ -1,0 +1,63 @@
+{ "Faculty": 6,
+"Identity": {
+"Name": "Dr. Ravi Teja",
+"FacultyID": "VCE-006",
+"Department": "Artificial Intelligence & Machine Learning",
+"Designation": "Assistant Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (AI), IIIT Hyderabad",
+"Experience": "5 years; roles: Research Associate, Assistant Professor",
+"AreasOfSpecialization": [
+"Deep Learning",
+"Computer Vision",
+"Medical Imaging"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"CV",
+"DL",
+"Medical Imaging"
+],
+"Skills": [
+"Python",
+"PyTorch",
+"OpenCV",
+"Keras",
+"CUDA"
+],
+"ExpertiseTags": [
+"convolutional-networks",
+"segmentation",
+"medical-image-analysis",
+"transfer-learning"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Automated retinal disease detection using deep learning",
+"Industry pilot: AI-assisted ultrasound analysis"
+],
+"PublicationCount": 14,
+"CitationCount": 260
+},
+"EngagementLayer": {
+"Email": "ravi.teja@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE"
+],
+"AwardsAchievements": [
+"Best Poster (ML in Healthcare) 2021",
+"Early Career Research Grant (college) 2024"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+}

@@ -1,0 +1,63 @@
+{ "Faculty": 9,
+"Identity": {
+"Name": "Dr. Meera Devi",
+"FacultyID": "VCE-009",
+"Department": "Computer Science and Engineering",
+"Designation": "Assistant Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Data Science), University of Hyderabad",
+"Experience": "4 years; roles: Postdoc, Assistant Professor",
+"AreasOfSpecialization": [
+"Recommender Systems",
+"Graph ML",
+"Explainable AI"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Graph ML",
+"Recommender Systems",
+"XAI"
+],
+"Skills": [
+"Python",
+"PyTorch Geometric",
+"NetworkX",
+"Hugging Face"
+],
+"ExpertiseTags": [
+"graph-embeddings",
+"explainability",
+"personalization",
+"evaluation-metrics"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"Institutional: Explainable recommendation for e-learning platforms",
+"Industry pilot: Personalized course recommender for MOOC partner"
+],
+"PublicationCount": 9,
+"CitationCount": 120
+},
+"EngagementLayer": {
+"Email": "meera.devi@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"ACM",
+"IEEE"
+],
+"AwardsAchievements": [
+"Best Young Researcher (College) 2024",
+"Research Travel Fellowship 2023"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+}

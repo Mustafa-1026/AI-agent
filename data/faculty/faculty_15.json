@@ -1,0 +1,62 @@
+{ "Faculty": 15,
+"Identity": {
+"Name": "Dr. Rohit Varma",
+"FacultyID": "OSM-001",
+"Department": "Computer Science",
+"Designation": "Associate Professor",
+"Institution": "Osmania University"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Data Mining), Osmania University",
+"Experience": "13 years; roles: Assistant Professor, Associate Professor",
+"AreasOfSpecialization": [
+"Data Mining",
+"Information Retrieval",
+"Text Analytics"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Data Mining",
+"NLP",
+"IR"
+],
+"Skills": [
+"Python",
+"R",
+"Lucene",
+"Elasticsearch"
+],
+"ExpertiseTags": [
+"text-mining",
+"topic-modeling",
+"semantic-search"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"State-funded: Automated indexing for university archives",
+"Institutional: Semantic search for institutional repository"
+],
+"PublicationCount": 40,
+"CitationCount": 950
+},
+"EngagementLayer": {
+"Email": "rohit.varma@osmania.ac.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"ISTE",
+"ACM"
+],
+"AwardsAchievements": [
+"University Research Award 2018",
+"Best Paper (National) 2016"
+]
+},
+"SystemMetadata": {
+"DataSource": "real",
+"LastUpdated": "2026"
+}
+}

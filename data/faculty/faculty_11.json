@@ -1,0 +1,62 @@
+{ "Faculty": 11,
+"Identity": {
+"Name": "Dr. Pavani Reddy",
+"FacultyID": "VCE-011",
+"Department": "Artificial Intelligence & Machine Learning",
+"Designation": "Assistant Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (AI), JNTUH",
+"Experience": "7 years; roles: Research Associate, Assistant Professor",
+"AreasOfSpecialization": [
+"Federated Learning",
+"Distributed ML",
+"Edge AI"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Federated Learning",
+"Edge AI",
+"Distributed Systems"
+],
+"Skills": [
+"Python",
+"TensorFlow Federated",
+"Docker",
+"Kubernetes"
+],
+"ExpertiseTags": [
+"privacy-preserving",
+"edge-deployment",
+"model-optimization"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Federated learning for rural healthcare diagnostics",
+"Industry: Lightweight models for edge devices"
+],
+"PublicationCount": 16,
+"CitationCount": 210
+},
+"EngagementLayer": {
+"Email": "pavani.reddy@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"IEEE",
+"ISTE"
+],
+"AwardsAchievements": [
+"Best PhD Thesis Award (University) 2019",
+"Early Career Research Grant 2022"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+}

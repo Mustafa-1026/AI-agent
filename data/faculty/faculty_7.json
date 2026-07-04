@@ -1,0 +1,64 @@
+{ "Faculty": 7,
+"Identity": {
+"Name": "Dr. Lakshmi Narayan",
+"FacultyID": "VCE-007",
+"Department": "Data Science",
+"Designation": "Associate Professor",
+"Institution": "Vardhaman College of Engineering"
+},
+"AcademicProfile": {
+"Qualification": "Ph.D. (Statistics & Data Science), Osmania University",
+"Experience": "11 years; roles: Assistant Professor, Associate Professor",
+"AreasOfSpecialization": [
+"Data Analytics",
+"Statistical Learning",
+"Big Data"
+]
+},
+"ResearchIntelligence": {
+"ResearchAreas": [
+"Data Science",
+"Statistics",
+"Big Data"
+],
+"Skills": [
+"R",
+"Python",
+"Spark",
+"Hadoop",
+"Tableau"
+],
+"ExpertiseTags": [
+"predictive-modeling",
+"time-series",
+"causal-inference",
+"data-visualization"
+]
+},
+"ResearchOutput": {
+"CurrentProjects": [
+"AICTE: Scalable anomaly detection for utility data",
+"Collab: Predictive analytics for student performance"
+],
+"PublicationCount": 22,
+"CitationCount": 480
+},
+"EngagementLayer": {
+"Email": "lakshmi.narayan@vardhaman.edu.in",
+"MentorshipAvailability": "Yes"
+},
+"CredibilityLayer": {
+"ProfessionalMemberships": [
+"ISI",
+"ISTE"
+],
+"AwardsAchievements": [
+"Best Data Science Project (Regional) 2020",
+"Statistical Society Young Researcher Award 2018"
+]
+},
+"SystemMetadata": {
+"DataSource": "synthetic",
+"LastUpdated": "2026"
+}
+}
