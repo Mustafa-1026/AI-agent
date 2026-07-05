@@ -1,63 +1,88 @@
-def find_gaps(rag_results, trending_topics):
+"""
+gap_analysis.py
+===============
 
-    faculty_topics = set()
+Research Gap Analysis
 
-    for faculty in rag_results:
-        for area in faculty["research_areas"]:
-            faculty_topics.add(area)
+Responsibilities
+----------------
+- Compare faculty expertise with trending research topics.
+- Identify research gaps.
 
-    print("\n==============================")
-    print("RESEARCH GAP ANALYSIS")
-    print("==============================")
+This module does NOT:
+- Query ChromaDB
+- Call Tavily API
+- Generate embeddings
+"""
+
+from agents.student_agent import _extract_document_fields
+
+
+def find_gaps(faculty_results, trending_topics):
+    """
+    Identify research gaps by comparing faculty expertise
+    with trending topics.
+
+    Parameters
+    ----------
+    faculty_results : list
+        Results returned from the RAG retriever.
+
+    trending_topics : list
+        Latest research topics from Tavily.
+
+    Returns
+    -------
+    list
+        Topics not currently covered by faculty.
+    """
+
+    covered_topics = set()
+
+    for faculty in faculty_results:
+
+        extracted = _extract_document_fields(
+            faculty["document"]
+        )
+
+        for area in extracted.get("research_areas", []):
+
+            covered_topics.add(area.lower())
 
     gaps = []
 
     for topic in trending_topics:
-        if topic not in faculty_topics:
+
+        if topic.lower() not in covered_topics:
+
             gaps.append(topic)
-
-    if len(gaps) == 0:
-        print("No research gaps found.")
-
-    else:
-        print("Department should explore:\n")
-
-        for gap in gaps:
-            print("-", gap)
 
     return gaps
 
 
+def print_gap_analysis(gaps):
+    """
+    Pretty print research gaps.
+    """
+
+    print("\nResearch Gap Analysis")
+    print("=" * 50)
+
+    if not gaps:
+
+        print("No research gaps found.")
+        return
+
+    print("Emerging topics with limited faculty expertise:\n")
+
+    for topic in gaps:
+
+        print("-", topic)
+
+
 if __name__ == "__main__":
 
-    rag_results = [
-
-        {
-            "name": "Dr. Ramesh",
-            "research_areas": [
-                "Artificial Intelligence",
-                "Machine Learning"
-            ]
-        },
-
-        {
-            "name": "Dr. Priya",
-            "research_areas": [
-                "Computer Vision",
-                "Deep Learning"
-            ]
-        }
-
-    ]
-
-    trending_topics = [
-
-        "Artificial Intelligence",
-        "Machine Learning",
-        "Agentic AI",
-        "RAG Systems",
-        "Multimodal LLMs"
-
-    ]
-
-    find_gaps(rag_results, trending_topics)
+    print(
+        "Gap Analysis module should be called "
+        "from professor_agent.py"
+    )

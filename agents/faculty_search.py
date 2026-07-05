@@ -1,150 +1,136 @@
 """
-collaboration.py
-================
+faculty_search.py
+=================
 
-Collaboration Engine
+Faculty Search Module
 
 Responsibilities
 ----------------
-- Find collaboration opportunities
-- Calculate collaboration score
-- Identify common research areas
+- Search faculty using semantic search
+- Get top faculty matches
+- Find faculty by ID
 
 This module does NOT:
-- Query ChromaDB
-- Generate embeddings
+- Access ChromaDB directly
+- Generate embeddings manually
 """
 
-from agents.student_agent import _extract_document_fields
+from rag.retriever import (
+    semantic_search,
+    faculty_lookup,
+)
 
 
-def calculate_collaboration_score(common_areas):
+def search_faculty(query, context, top_k=5):
     """
-    Calculate collaboration score.
+    Search faculty using semantic search.
 
     Parameters
     ----------
-    common_areas : list
-
-    Returns
-    -------
-    float
-    """
-
-    if not common_areas:
-        return 0.0
-
-    score = min(len(common_areas) * 0.25, 1.0)
-
-    return round(score, 2)
-
-
-def find_collaboration(faculty_results):
-    """
-    Find collaboration opportunities among faculty.
-
-    Parameters
-    ----------
-    faculty_results : list
+    query : str
+    context : RetrieverContext
+    top_k : int
 
     Returns
     -------
     list
+        List of faculty dictionaries.
     """
 
-    collaborations = []
+    try:
 
-    if len(faculty_results) < 2:
-        return collaborations
-
-    for i in range(len(faculty_results)):
-
-        faculty1 = faculty_results[i]
-
-        data1 = _extract_document_fields(
-            faculty1["document"]
+        results = semantic_search(
+            query=query,
+            context=context,
+            top_k=top_k
         )
 
-        research1 = set(data1["research_areas"])
+        return results
 
-        for j in range(i + 1, len(faculty_results)):
+    except Exception as e:
 
-            faculty2 = faculty_results[j]
-
-            data2 = _extract_document_fields(
-                faculty2["document"]
-            )
-
-            research2 = set(data2["research_areas"])
-
-            common = sorted(
-                research1.intersection(research2)
-            )
-
-            if common:
-
-                collaborations.append({
-
-                    "faculty_1": faculty1["name"],
-
-                    "faculty_2": faculty2["name"],
-
-                    "faculty_1_id": faculty1["faculty_id"],
-
-                    "faculty_2_id": faculty2["faculty_id"],
-
-                    "shared_area": common,
-
-                    "collaboration_score":
-                        calculate_collaboration_score(common)
-
-                })
-
-    collaborations.sort(
-
-        key=lambda x: x["collaboration_score"],
-
-        reverse=True
-
-    )
-
-    return collaborations
+        print(f"Faculty Search Error: {e}")
+        return []
 
 
-def print_collaborations(collaborations):
+def search_by_faculty_id(faculty_id, context):
     """
-    Pretty print collaborations.
+    Search exact faculty by FacultyID.
     """
 
-    if not collaborations:
+    try:
 
-        print("\nNo collaboration opportunities found.")
+        return faculty_lookup(
+            faculty_id=faculty_id,
+            context=context
+        )
 
+    except Exception as e:
+
+        print(f"Faculty Lookup Error: {e}")
+        return None
+
+
+def print_search_results(results):
+    """
+    Pretty print faculty search results.
+    """
+
+    if not results:
+
+        print("\nNo faculty found.")
         return
 
-    print("\nPossible Collaborations")
+    print("\nTop Faculty Matches")
     print("=" * 60)
 
-    for item in collaborations:
+    for i, faculty in enumerate(results, start=1):
 
-        print(f"\n{item['faculty_1']}")
-        print("        ↕")
-        print(item["faculty_2"])
+        print(f"\n{i}. {faculty['name']}")
+        print(f"Faculty ID : {faculty['faculty_id']}")
+        print(f"Institution: {faculty['institution']}")
+        print(f"Department : {faculty['department']}")
+        print(f"Designation: {faculty['designation']}")
+        print(f"Score      : {faculty['score']:.3f}")
 
-        print(
-            "Shared Areas :",
-            ", ".join(item["shared_area"])
-        )
 
-        print(
-            "Synergy Score:",
-            item["collaboration_score"]
-        )
+def get_best_match(results):
+    """
+    Return highest ranked faculty.
+    """
+
+    if not results:
+        return None
+
+    return results[0]
+
+
+def get_top_matches(results, n=3):
+    """
+    Return first n faculty matches.
+    """
+
+    return results[:n]
 
 
 if __name__ == "__main__":
 
-    print(
-        "This module is intended to be called "
-        "from professor_agent.py"
-    )
+    from rag.retriever import initialize_retriever
+
+    context = initialize_retriever()
+
+    if context is None:
+
+        print("Retriever initialization failed.")
+
+    else:
+
+        query = input("Enter research topic: ")
+
+        results = search_faculty(
+            query=query,
+            context=context,
+            top_k=5
+        )
+
+        print_search_results(results)

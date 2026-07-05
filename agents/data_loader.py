@@ -1,8 +1,70 @@
-import json
+"""
+data_loader.py
+==============
 
-def load_faculty():
+Loads faculty data and initializes the RAG retriever.
 
-    with open("data/faculty_profiles.json", "r", encoding="utf-8") as file:
-        faculty = json.load(file)
+Responsibilities
+----------------
+- Load faculty profiles
+- Initialize retriever context
 
-    return faculty
+Does NOT:
+- Perform semantic search
+- Rank faculty
+- Generate recommendations
+"""
+
+from rag.loader import load_faculty_profiles
+from rag.retriever import initialize_retriever
+
+
+def load_data():
+    """
+    Load faculty profiles and initialize the retriever.
+
+    Returns
+    -------
+    dict
+        {
+            "profiles": list,
+            "context": RetrieverContext
+        }
+    """
+
+    profiles = load_faculty_profiles()
+
+    context = initialize_retriever()
+
+    return {
+        "profiles": profiles,
+        "context": context
+    }
+
+
+def get_profiles():
+    """
+    Return all faculty profiles.
+    """
+
+    return load_faculty_profiles()
+
+
+def get_context():
+    """
+    Return initialized RetrieverContext.
+    """
+
+    return initialize_retriever()
+
+
+if __name__ == "__main__":
+
+    data = load_data()
+
+    print("Faculty Profiles :", len(data["profiles"]))
+
+    if data["context"]:
+        print("Retriever initialized successfully.")
+    else:
+        print("Retriever initialization failed.")
