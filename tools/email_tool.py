@@ -1,6 +1,6 @@
 """
-email_sender.py
-================
+email_tool.py
+=============
 
 Email composition and sending tool for the AI-powered Faculty
 Intelligence & Research Discovery System.
@@ -31,7 +31,7 @@ project's overall flow.
 Configuration
 --------------
 Reads the following from a `.env` file (via python-dotenv), matching
-the existing pattern used in tools/tavily_search.py:
+the existing pattern used in tools/tavily_tool.py:
 
     EMAIL_ADDRESS   - the sender's email address
     EMAIL_PASSWORD  - the sender's app password / SMTP password
