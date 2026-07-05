@@ -1,144 +1,105 @@
-"""
-agent.py
-========
+from rag.chroma_db import get_collection
+from rag.embedder import embed_text
+from rag.retriever import retrieve_faculty
+from agents.recommendation_engine import recommend_faculty
 
-Main orchestration layer for the Faculty Intelligence &
-Research Discovery System.
-
-Responsibilities
-----------------
-- Initialize the retrieval context
-- Select Student / Professor mode
-- Delegate work to the appropriate agent
-- Display formatted results
-
-This file NEVER:
-- Queries ChromaDB directly
-- Generates embeddings manually
-- Calls the embedding model
-"""
-
-from __future__ import annotations
-
-from rag.retriever import initialize_retriever
-
-from agents.student_agent import handle_student_query
-from agents.professor_agent import handle_professor_query
+from agents.student_agent import show_best_match, tell_about_faculty
+from agents.professor_agent import professor_mode
 
 
-# --------------------------------------------------
-# Helper Functions
-# --------------------------------------------------
+# -----------------------------
+# EXPLAINABILITY ENGINE
+# -----------------------------
+def explain_match(query, faculty):
+    reasons = []
 
-def print_header():
-    print("\n" + "=" * 60)
-    print("AI FACULTY INTELLIGENCE & RESEARCH DISCOVERY SYSTEM")
-    print("=" * 60)
+    query = query.lower()
 
+    for area in faculty.get("research_areas", []):
+        if area.lower() in query:
+            reasons.append(f"Matches research area: {area}")
 
-def choose_mode():
-    print("\nAvailable Modes")
-    print("----------------")
-    print("1. Student")
-    print("2. Professor")
+    if not reasons:
+        reasons.append("Semantic similarity from research profile")
 
-    while True:
-
-        choice = input("\nSelect mode (1/2): ").strip()
-
-        if choice == "1":
-            return "student"
-
-        if choice == "2":
-            return "professor"
-
-        print("Invalid selection.")
+    return reasons
 
 
-def print_student_output(result):
+# -----------------------------
+# FORMAT CHROMA RESULTS
+# -----------------------------
+def format_results(results):
 
-    print("\n" + "=" * 60)
-    print("RESULT")
-    print("=" * 60)
+    formatted = []
 
-    print("\nDetected Intent:")
-    print(result["intent"])
+    documents = results.get("documents", [[]])[0]
+    metadatas = results.get("metadatas", [[]])[0]
+    distances = results.get("distances", [[]])[0]
 
-    print("\nTop Faculty Matches")
-    print("-------------------")
+    for i in range(len(documents)):
 
-    for index, faculty in enumerate(result["top_matches"], start=1):
+        formatted.append({
+            "name": metadatas[i].get("name", "Unknown"),
+            "department": metadatas[i].get("department", "Unknown"),
+            "research_areas": metadatas[i].get("research_areas", []),
+            "score": round(1 - distances[i], 2)
+        })
 
-        print(f"\n{index}. {faculty['name']}")
-        print(f"Faculty ID : {faculty['faculty_id']}")
-        print(f"Institution: {faculty['institution']}")
-        print(f"Department : {faculty['department']}")
-        print(f"Designation: {faculty['designation']}")
-        print(f"Score      : {faculty['final_score']:.3f}")
-
-    print("\nBest Recommendation")
-    print("-------------------")
-    print(result["best_recommendation"])
-
-    if result["warnings"]:
-        print("\nWarnings")
-        print("--------")
-        for warning in result["warnings"]:
-            print("-", warning)
-
-    if result["projects"]:
-        print("\nSuggested Projects")
-        print("------------------")
-
-        for project in result["projects"]:
-
-            print(f"\nTitle : {project['title']}")
-            print(project["description"])
-            print("Faculty :", project["related_faculty"])
-
-    print("\nEmail Draft")
-    print("-----------")
-    print(result["email_draft"])
+    return formatted
 
 
-# --------------------------------------------------
-# Main Controller
-# --------------------------------------------------
-
+# -----------------------------
+# MAIN AGENT CONTROLLER
+# -----------------------------
 def start_agent():
 
-    print_header()
+    print("\n===================================")
+    print("RESEARCH MATCHING CHATBOT")
+    print("===================================")
 
-    context = initialize_retriever()
+    mode = input("Choose mode (student/professor): ").lower()
 
-    if context is None:
+    collection = get_collection()
 
-        print("\nUnable to initialize retrieval system.")
-        print("Please check ChromaDB and embeddings.")
-        return
+    query = input("\nEnter your research interest: ")
 
-    mode = choose_mode()
+    # 1. Convert query → embedding
+    query_embedding = embed_text(query)
 
+    # 2. Retrieve from ChromaDB
+    raw_results = retrieve_faculty(query_embedding, collection)
+
+    # 3. Format results
+    rag_results = recommend_faculty(query, format_results(raw_results))
+
+    # -----------------------------
+    # STUDENT MODE
+    # -----------------------------
     if mode == "student":
 
-        query = input("\nEnter your research interest:\n> ")
+        print("\n🏆 TOP MATCHES:\n")
 
-        purpose = input(
-            "\nPurpose of contacting faculty (optional):\n> "
-        ).strip()
+        for i, faculty in enumerate(rag_results[:3], 1):
 
-        result = handle_student_query(
-            query=query,
-            context=context,
-            email_purpose=purpose
-        )
+            print(f"{i}. {faculty['name']}")
+            print("   Department:", faculty["department"])
+            print("   Score:", faculty["score"])
 
-        print_student_output(result)
+            print("   Why this match:")
+            for reason in explain_match(query, faculty):
+                print("   -", reason)
+
+            print("\n" + "-" * 50)
+
+        name = input("\nEnter faculty name for details: ")
+        tell_about_faculty(name, rag_results)
+
+    # -----------------------------
+    # PROFESSOR MODE
+    # -----------------------------
+    elif mode == "professor":
+
+        professor_mode(rag_results)
 
     else:
-
-        handle_professor_query(context)
-
-
-if __name__ == "__main__":
-    start_agent()
+        print("Invalid mode selected")
