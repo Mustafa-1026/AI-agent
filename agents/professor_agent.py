@@ -1,69 +1,111 @@
-from agents.collaboration import find_collaboration
-from agents.gap_analysis import find_gaps
+"""
+professor_agent.py
+==================
 
-def professor_mode(rag_results):
+Professor workflow for the AI Faculty Intelligence &
+Research Discovery System.
+"""
 
-    print("\n===================================")
+from rag.retriever import semantic_search
+
+from tools.tavily_search import search_trends
+from tools.collaboration_engine import find_collaborations
+from tools.gap_analyzer import analyze_gaps
+
+
+def display_matches(results):
+
+    if not results:
+        print("\nNo matching faculty found.")
+        return
+
+    print("\nMatching Faculty")
+    print("-" * 50)
+
+    for faculty in results:
+
+        print(f"\nName        : {faculty['name']}")
+        print(f"Institution : {faculty['institution']}")
+        print(f"Department  : {faculty['department']}")
+        print(f"Score       : {faculty['score']:.3f}")
+
+
+def handle_professor_query(context):
+
+    print("\n" + "=" * 60)
     print("PROFESSOR MODE")
-    print("===================================")
+    print("=" * 60)
 
-    topic = input("Enter research topic: ")
+    topic = input("\nEnter research topic:\n> ").strip()
 
-    print("\nSearching latest research trends...")
+    if not topic:
+        print("Topic cannot be empty.")
+        return
 
-    # Temporary trends
-    trending_topics = [
+    print("\nSearching faculty database...")
 
-        "Artificial Intelligence",
-        "Machine Learning",
-        "Agentic AI",
-        "RAG Systems",
-        "Multimodal LLMs"
+    faculty_results = semantic_search(
+        query=topic,
+        context=context,
+        top_k=10
+    )
 
-    ]
+    display_matches(faculty_results)
 
-    print("\nLatest Trends")
+    print("\nSearching latest research trends...\n")
 
-    for trend in trending_topics:
-        print("-", trend)
+    trends = search_trends(topic)
 
-    print("\nChecking collaboration opportunities...")
+    print(trends)
 
-    find_collaboration(rag_results)
+    collaborations = find_collaborations(faculty_results)
 
-    print("\nChecking research gaps...")
+    print("\nPossible Collaborations")
+    print("-" * 50)
 
-    find_gaps(rag_results, trending_topics)
+    if collaborations:
 
+        for item in collaborations:
 
-if __name__ == "__main__":
+            print(
+                f"{item['faculty_1']}  <-->  "
+                f"{item['faculty_2']}"
+            )
 
-    rag_results = [
+            print(
+                "Shared Areas:",
+                ", ".join(item["shared_area"])
+            )
 
-        {
-            "name": "Dr. Ramesh Karnati",
-            "research_areas": [
-                "Artificial Intelligence",
-                "Machine Learning"
-            ]
-        },
+            print()
 
-        {
-            "name": "Dr. Priya",
-            "research_areas": [
-                "Artificial Intelligence",
-                "Computer Vision"
-            ]
-        },
+    else:
 
-        {
-            "name": "Dr. Vinay",
-            "research_areas": [
-                "IoT",
-                "Data Mining"
-            ]
-        }
+        print("No collaboration opportunities found.")
 
-    ]
+    trending_topics = []
 
-    professor_mode(rag_results)
+    if isinstance(trends, str):
+
+        trending_topics = [
+            x.strip()
+            for x in trends.split(",")
+            if x.strip()
+        ]
+
+    gaps = analyze_gaps(
+        faculty_results,
+        trending_topics
+    )
+
+    print("\nResearch Gaps")
+    print("-" * 50)
+
+    if gaps:
+
+        for gap in gaps:
+            print("-", gap)
+
+    else:
+
+        print("No research gaps detected.")
