@@ -16,6 +16,19 @@ Every backend call is wrapped defensively so a missing/broken module
 degrades gracefully instead of crashing the whole app.
 """
 
+import sys
+from pathlib import Path
+
+# ---------------------------------------------------------------------------
+# Make sure the project root (parent of ui/) is importable regardless of
+# where `streamlit run` is launched from. This is what was causing
+# "No module named 'agents'" — Streamlit's working directory was `ui/`,
+# not the project root, so `agents/`, `rag/`, `tools/` weren't on sys.path.
+# ---------------------------------------------------------------------------
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 import streamlit as st
 
 # ---------------------------------------------------------------------------
@@ -62,7 +75,7 @@ st.set_page_config(
     page_title="AI Academic Intelligence System",
     page_icon="🎓",
     layout="wide",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="expanded",
 )
 
 st.markdown(
@@ -116,9 +129,38 @@ st.markdown(
             margin-bottom: 0.4rem;
         }
 
+        .score-badge {
+            display: inline-block;
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        .score-high { background: rgba(34,197,94,0.15); color: #22C55E; }
+        .score-mid  { background: rgba(234,179,8,0.15); color: #EAB308; }
+        .score-low  { background: rgba(239,68,68,0.15); color: #EF4444; }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .status-ok { background: #22C55E; }
+        .status-bad { background: #EF4444; }
+
+        section[data-testid="stSidebar"] {
+            border-right: 1px solid rgba(120,120,120,0.15);
+        }
+
         div[data-testid="stButton"] > button {
             border-radius: 10px;
             font-weight: 600;
+        }
+
+        div[data-testid="stChatMessage"] {
+            border-radius: 14px;
         }
     </style>
     """,
@@ -139,6 +181,7 @@ def init_session_state() -> None:
         "selected_faculty_id": None,
         "last_student_result": None,
         "last_professor_result": None,
+        "student_chat_history": [],  # list of {"role": "user"/"assistant", "content": str, "result": dict|None}
     }
     for key, value in defaults.items():
         if key not in st.session_state:
@@ -168,7 +211,62 @@ def reset_to_landing() -> None:
     st.session_state["selected_faculty_id"] = None
     st.session_state["last_student_result"] = None
     st.session_state["last_professor_result"] = None
+    st.session_state["student_chat_history"] = []
     st.rerun()
+
+
+def score_badge_html(score: float) -> str:
+    try:
+        s = float(score)
+    except (TypeError, ValueError):
+        s = 0.0
+    css_class = "score-high" if s >= 0.75 else "score-mid" if s >= 0.5 else "score-low"
+    return f'<span class="score-badge {css_class}">Match {s:.2f}</span>'
+
+
+# ---------------------------------------------------------------------------
+# Sidebar — shown on every stage
+# ---------------------------------------------------------------------------
+
+def render_sidebar() -> None:
+    with st.sidebar:
+        st.markdown("## 🎓 AI Academic\nIntelligence System")
+        st.caption("Multi-agent faculty matching & research strategy")
+        st.markdown("---")
+
+        st.markdown("**System Status**")
+
+        rag_ctx = get_retriever_context() if RETRIEVER_AVAILABLE else None
+        rag_ok = RETRIEVER_AVAILABLE and rag_ctx is not None
+
+        def status_line(label: str, ok: bool, detail: str = "") -> None:
+            dot_class = "status-ok" if ok else "status-bad"
+            text = "Online" if ok else "Unavailable"
+            st.markdown(
+                f'<span class="status-dot {dot_class}"></span>{label}: **{text}**',
+                unsafe_allow_html=True,
+            )
+            if not ok and detail:
+                st.caption(detail[:120])
+
+        status_line("RAG Pipeline", RETRIEVER_AVAILABLE, retriever_import_error)
+        status_line("ChromaDB", rag_ok, "Knowledge base not connected.")
+        status_line("Student Agent", STUDENT_AGENT_AVAILABLE, student_import_error)
+        status_line("Professor Agent", PROFESSOR_AGENT_AVAILABLE, professor_import_error)
+
+        st.markdown("---")
+        stage = st.session_state["stage"]
+        if stage not in ("landing",):
+            if st.button("← Back to Home", use_container_width=True, key="sidebar_home"):
+                reset_to_landing()
+
+        with st.expander("About this system"):
+            st.write(
+                "This system matches students with faculty mentors using "
+                "semantic search over a ChromaDB knowledge base, and helps "
+                "professors surface research trends, gaps, and collaboration "
+                "opportunities across departments."
+            )
 
 
 # ---------------------------------------------------------------------------
@@ -280,7 +378,7 @@ def render_professor_login() -> None:
 def render_faculty_card(faculty: dict, index: int, key_prefix: str) -> bool:
     """Renders a faculty card with a 'Select' button. Returns True if clicked."""
     with st.container(border=True):
-        col1, col2, col3, col4 = st.columns([3, 2, 1, 1.3])
+        col1, col2, col3, col4 = st.columns([3, 2, 1.5, 1.3])
         with col1:
             st.markdown(f"**{faculty.get('name', 'Unknown')}**")
             st.caption(faculty.get("institution", ""))
@@ -288,57 +386,28 @@ def render_faculty_card(faculty: dict, index: int, key_prefix: str) -> bool:
             st.write(faculty.get("department", "Unknown"))
         with col3:
             score = faculty.get("final_score", faculty.get("score", 0.0))
-            st.metric("Match", f"{score:.2f}")
+            st.markdown(score_badge_html(score), unsafe_allow_html=True)
         with col4:
-            return st.button("Select ✉️", key=f"{key_prefix}_{faculty.get('faculty_id', index)}", use_container_width=True)
+            return st.button(
+                "Select ✉️",
+                key=f"{key_prefix}_{faculty.get('faculty_id', index)}",
+                use_container_width=True,
+            )
 
 
 # ---------------------------------------------------------------------------
-# STUDENT DASHBOARD
+# STUDENT DASHBOARD (chat-style)
 # ---------------------------------------------------------------------------
 
-def render_student_app() -> None:
-    top_bar_l, top_bar_r = st.columns([5, 1])
-    with top_bar_l:
-        display_name = st.session_state["student_name"] or "Student"
-        st.markdown(f"#### 🎓 Welcome, {display_name}")
-    with top_bar_r:
-        if st.button("Log out", key="student_logout"):
-            reset_to_landing()
+SUGGESTED_STUDENT_PROMPTS = [
+    "Need a mentor in AI",
+    "Who works on NLP?",
+    "Suggest a project in ML",
+]
 
-    st.caption(
-        "Examples: \"Who works on NLP?\" · \"Suggest a project in AI\" · "
-        "\"Who should I approach for ML?\""
-    )
 
-    query = st.text_input("Ask your academic query", key="student_query")
-    search_clicked = st.button("Search", type="primary", key="student_search")
-
-    if search_clicked:
-        if not query or not query.strip():
-            st.warning("Please enter a query before searching.")
-        elif not STUDENT_AGENT_AVAILABLE:
-            st.error(f"Student agent is currently unavailable. Details: {student_import_error}")
-        else:
-            context = get_retriever_context()
-            if context is None:
-                st.error(
-                    "Could not connect to the faculty knowledge base. Make sure "
-                    "the ChromaDB collection has been built, then try again."
-                )
-            else:
-                try:
-                    with st.spinner("Searching faculty knowledge base..."):
-                        result = handle_student_query(query, context=context)
-                    st.session_state["last_student_result"] = result
-                    st.session_state["selected_faculty_id"] = None
-                except Exception as exc:  # noqa: BLE001
-                    st.error(f"Something went wrong while processing your query: {exc}")
-
-    result = st.session_state.get("last_student_result")
-    if not result:
-        return
-
+def render_student_result(result: dict, msg_index: int) -> None:
+    """Renders faculty matches / warnings / projects for one chat turn."""
     top_matches = result.get("top_matches", [])
     warnings = result.get("warnings", [])
     explanations = result.get("explanations", [])
@@ -351,30 +420,27 @@ def render_student_app() -> None:
     else:
         st.success("Strong alignment found between your query and top matches.")
 
-    st.markdown("### 🏆 Top Faculty Matches")
-    st.caption("Click **Select ✉️** on a faculty member to see why they match and draft an email.")
-
     if not top_matches:
         st.info("No matching faculty were found for this query.")
-    else:
-        for idx, faculty in enumerate(top_matches, start=1):
-            clicked = render_faculty_card(faculty, idx, key_prefix="student_select")
-            if clicked:
-                st.session_state["selected_faculty_id"] = faculty.get("faculty_id")
+        return
 
-        if best_recommendation:
-            st.info(f"**Best recommendation:** {best_recommendation}")
+    st.markdown("**🏆 Top Faculty Matches**")
+    for idx, faculty in enumerate(top_matches, start=1):
+        clicked = render_faculty_card(faculty, idx, key_prefix=f"student_select_{msg_index}")
+        if clicked:
+            st.session_state["selected_faculty_id"] = faculty.get("faculty_id")
+            st.session_state["_selected_result_index"] = msg_index
+
+    if best_recommendation:
+        st.info(f"**Best recommendation:** {best_recommendation}")
 
     selected_id = st.session_state.get("selected_faculty_id")
-    if selected_id:
+    if selected_id and st.session_state.get("_selected_result_index") == msg_index:
         selected_faculty = next((f for f in top_matches if f.get("faculty_id") == selected_id), None)
         if selected_faculty:
-            st.markdown("---")
-            st.markdown(f"### ✉️ {selected_faculty.get('name')} — Details & Email Draft")
+            st.markdown(f"**✉️ {selected_faculty.get('name')} — Details & Email Draft**")
 
-            explanation = next(
-                (e for e in explanations if e.get("faculty_id") == selected_id), None
-            )
+            explanation = next((e for e in explanations if e.get("faculty_id") == selected_id), None)
             if explanation:
                 with st.expander("Why this match?", expanded=True):
                     for reason in explanation.get("why_it_works", []):
@@ -384,24 +450,95 @@ def render_student_app() -> None:
                     for reason in explanation.get("missing_alignment", []):
                         st.write(f"⚠️ {reason}")
 
-            try:
-                draft_text = generate_email_draft(selected_faculty, purpose="")
-                st.code(draft_text, language=None)
-                st.caption("Copy this draft using the icon above — emails are never sent automatically.")
-            except Exception as exc:  # noqa: BLE001
-                st.error(f"Could not generate email draft: {exc}")
+            if STUDENT_AGENT_AVAILABLE:
+                try:
+                    draft_text = generate_email_draft(selected_faculty, purpose="")
+                    st.code(draft_text, language=None)
+                    st.caption("Copy this draft using the icon above — emails are never sent automatically.")
+                except Exception as exc:  # noqa: BLE001
+                    st.error(f"Could not generate email draft: {exc}")
 
     if projects:
-        st.markdown("### 💡 Project Suggestions")
-        for project in projects:
-            with st.container(border=True):
-                st.markdown(f"**{project.get('title', 'Untitled Project')}**")
-                st.write(project.get("description", ""))
-                st.caption(f"Related faculty: {project.get('related_faculty', 'Unknown')}")
+        with st.expander("💡 Project Suggestions"):
+            for project in projects:
+                with st.container(border=True):
+                    st.markdown(f"**{project.get('title', 'Untitled Project')}**")
+                    st.write(project.get("description", ""))
+                    st.caption(f"Related faculty: {project.get('related_faculty', 'Unknown')}")
+
+
+def run_student_query(query: str) -> None:
+    st.session_state["student_chat_history"].append({"role": "user", "content": query, "result": None})
+
+    if not STUDENT_AGENT_AVAILABLE:
+        st.session_state["student_chat_history"].append(
+            {"role": "assistant", "content": f"Student agent is currently unavailable. Details: {student_import_error}", "result": None}
+        )
+        return
+
+    context = get_retriever_context()
+    if context is None:
+        st.session_state["student_chat_history"].append(
+            {
+                "role": "assistant",
+                "content": "Could not connect to the faculty knowledge base. Make sure the ChromaDB collection has been built, then try again.",
+                "result": None,
+            }
+        )
+        return
+
+    try:
+        result = handle_student_query(query, context=context)
+        st.session_state["student_chat_history"].append(
+            {"role": "assistant", "content": None, "result": result}
+        )
+        st.session_state["last_student_result"] = result
+    except Exception as exc:  # noqa: BLE001
+        st.session_state["student_chat_history"].append(
+            {"role": "assistant", "content": f"Something went wrong while processing your query: {exc}", "result": None}
+        )
+
+
+def render_student_app() -> None:
+    top_bar_l, top_bar_r = st.columns([5, 1])
+    with top_bar_l:
+        display_name = st.session_state["student_name"] or "Student"
+        st.markdown(f"#### 🎓 Welcome, {display_name}")
+    with top_bar_r:
+        if st.button("Log out", key="student_logout"):
+            reset_to_landing()
+
+    st.caption("Ask about faculty mentors, research areas, or project ideas.")
+
+    # Suggested prompt chips (only shown before first message)
+    if not st.session_state["student_chat_history"]:
+        chip_cols = st.columns(len(SUGGESTED_STUDENT_PROMPTS))
+        for col, prompt in zip(chip_cols, SUGGESTED_STUDENT_PROMPTS):
+            with col:
+                if st.button(prompt, key=f"chip_{prompt}", use_container_width=True):
+                    with st.spinner("Searching faculty knowledge base..."):
+                        run_student_query(prompt)
+                    st.rerun()
+
+    # Render chat history
+    for i, turn in enumerate(st.session_state["student_chat_history"]):
+        role = turn["role"]
+        with st.chat_message("user" if role == "user" else "assistant"):
+            if turn.get("result") is not None:
+                render_student_result(turn["result"], msg_index=i)
+            else:
+                st.write(turn["content"])
+
+    # Chat input pinned at bottom
+    query = st.chat_input("Ask your academic query, e.g. 'Who works on NLP?'")
+    if query:
+        with st.spinner("Searching faculty knowledge base..."):
+            run_student_query(query)
+        st.rerun()
 
 
 # ---------------------------------------------------------------------------
-# PROFESSOR DASHBOARD
+# PROFESSOR DASHBOARD (tabbed)
 # ---------------------------------------------------------------------------
 
 def render_professor_app() -> None:
@@ -436,7 +573,7 @@ def render_professor_app() -> None:
                 )
             else:
                 try:
-                    with st.spinner("Analyzing research landscape..."):
+                    with st.spinner("Analyzing embeddings and research landscape..."):
                         result = handle_professor_query(
                             query,
                             context=context,
@@ -461,103 +598,125 @@ def render_professor_app() -> None:
     for warning_text in warnings:
         st.warning(warning_text)
 
-    st.markdown("### 🌐 Faculty Discovered Across Institutions")
-    st.caption("Click **Select ✉️** on a faculty member to draft a collaboration email.")
+    tab_matches, tab_collab, tab_insights = st.tabs(
+        ["🌐 Faculty Matches", "🤝 Collaboration Graph", "📈 Research Insights"]
+    )
 
-    if not candidates:
-        st.info("No faculty candidates found for this query.")
-    else:
-        for idx, faculty in enumerate(candidates, start=1):
-            clicked = render_faculty_card(faculty, idx, key_prefix="professor_select")
-            if clicked:
-                st.session_state["selected_faculty_id"] = faculty.get("faculty_id")
+    # ---- Tab 1: Faculty Matches ----
+    with tab_matches:
+        st.caption("Click **Select ✉️** on a faculty member to draft a collaboration email.")
 
-    selected_id = st.session_state.get("selected_faculty_id")
-    if selected_id:
-        selected_faculty = next((f for f in candidates if f.get("faculty_id") == selected_id), None)
-        if selected_faculty:
-            st.markdown("---")
-            st.markdown(f"### ✉️ Draft Email to {selected_faculty.get('name')}")
+        if not candidates:
+            st.info("No faculty candidates found for this query.")
+        else:
+            for idx, faculty in enumerate(candidates, start=1):
+                clicked = render_faculty_card(faculty, idx, key_prefix="professor_select")
+                if clicked:
+                    st.session_state["selected_faculty_id"] = faculty.get("faculty_id")
 
-            shared_topic = st.text_input(
-                "Shared research topic to mention (optional)",
-                key="professor_shared_topic",
-                placeholder="e.g. Federated Learning",
-            )
-            purpose = st.text_input(
-                "Purpose (optional)",
-                key="professor_email_purpose",
-                placeholder="e.g. explore a joint grant proposal",
-            )
+        selected_id = st.session_state.get("selected_faculty_id")
+        if selected_id:
+            selected_faculty = next((f for f in candidates if f.get("faculty_id") == selected_id), None)
+            if selected_faculty:
+                st.markdown("---")
+                st.markdown(f"### ✉️ Draft Email to {selected_faculty.get('name')}")
 
-            if PROFESSOR_AGENT_AVAILABLE:
-                try:
-                    draft = generate_professor_email_draft(
-                        recipient=selected_faculty,
-                        sender_name=st.session_state["professor_name"],
-                        shared_topic=shared_topic.strip(),
-                        purpose=purpose.strip(),
-                    )
-                    st.code(draft.get("body", ""), language=None)
+                shared_topic = st.text_input(
+                    "Shared research topic to mention (optional)",
+                    key="professor_shared_topic",
+                    placeholder="e.g. Federated Learning",
+                )
+                purpose = st.text_input(
+                    "Purpose (optional)",
+                    key="professor_email_purpose",
+                    placeholder="e.g. explore a joint grant proposal",
+                )
 
-                    confirmed = st.checkbox(
-                        "I have reviewed this draft and confirm I want to send it",
-                        key="professor_email_confirm",
-                    )
-                    if st.button("Send Email", key="professor_email_send"):
-                        if not confirmed:
-                            st.warning("Please confirm the checkbox above before sending.")
-                        else:
-                            send_result = send_professor_email(draft, confirm=True)
-                            if send_result.get("status") == "sent":
-                                st.success(send_result.get("message", "Email sent."))
+                if PROFESSOR_AGENT_AVAILABLE:
+                    try:
+                        draft = generate_professor_email_draft(
+                            recipient=selected_faculty,
+                            sender_name=st.session_state["professor_name"],
+                            shared_topic=shared_topic.strip(),
+                            purpose=purpose.strip(),
+                        )
+                        st.code(draft.get("body", ""), language=None)
+
+                        confirmed = st.checkbox(
+                            "I have reviewed this draft and confirm I want to send it",
+                            key="professor_email_confirm",
+                        )
+                        if st.button("Send Email", key="professor_email_send"):
+                            if not confirmed:
+                                st.warning("Please confirm the checkbox above before sending.")
                             else:
-                                st.error(send_result.get("message", "Email could not be sent."))
-                except Exception as exc:  # noqa: BLE001
-                    st.error(f"Could not generate/send email draft: {exc}")
+                                send_result = send_professor_email(draft, confirm=True)
+                                if send_result.get("status") == "sent":
+                                    st.success(send_result.get("message", "Email sent."))
+                                else:
+                                    st.error(send_result.get("message", "Email could not be sent."))
+                    except Exception as exc:  # noqa: BLE001
+                        st.error(f"Could not generate/send email draft: {exc}")
+                else:
+                    st.error(f"Professor agent is currently unavailable. Details: {professor_import_error}")
 
-    st.markdown("### 📈 Research Trends")
-    if research_trends.get("available"):
-        st.success("External trend data (via Tavily):")
-        st.write(research_trends.get("raw_summary", ""))
-    else:
-        st.info("External trend search is unavailable right now — showing internal dataset only.")
-        if candidates:
-            seen_areas = set()
-            for faculty in candidates:
-                for area in faculty.get("extracted", {}).get("research_areas", []):
-                    seen_areas.add(area)
-            if seen_areas:
-                st.write("Research areas currently represented in your dataset:")
-                st.write(", ".join(sorted(seen_areas)))
+    # ---- Tab 2: Collaboration Graph ----
+    with tab_collab:
+        if collaboration_matches:
+            for pair in collaboration_matches:
+                with st.container(border=True):
+                    c1, c2 = st.columns([4, 1])
+                    with c1:
+                        st.markdown(f"**{pair.get('faculty_1')} ↔ {pair.get('faculty_2')}**")
+                        if PROFESSOR_AGENT_AVAILABLE:
+                            try:
+                                st.write(explain_collaboration_recommendation(pair))
+                            except Exception as exc:  # noqa: BLE001
+                                st.caption(f"Could not load explanation: {exc}")
+                    with c2:
+                        synergy = pair.get("synergy_score", pair.get("score"))
+                        if synergy is not None:
+                            st.markdown(score_badge_html(synergy), unsafe_allow_html=True)
+        else:
+            st.info("No strong collaboration pairs found for this query.")
 
-    st.markdown("### 🔍 Research Gap Analysis")
-    if research_gaps:
-        for gap in research_gaps:
-            st.write(f"- {gap}")
-    else:
-        st.info("No confirmed research gaps to show for this query.")
+        if project_suggestions:
+            st.markdown("#### 💡 Joint Project Suggestions")
+            for project in project_suggestions:
+                with st.container(border=True):
+                    st.markdown(f"**{project.get('title', 'Untitled Project')}**")
+                    st.write(project.get("description", ""))
 
-    st.markdown("### 🤝 Collaboration Suggestions")
-    if collaboration_matches:
-        for pair in collaboration_matches:
-            with st.container(border=True):
-                st.markdown(f"**{pair.get('faculty_1')} ↔ {pair.get('faculty_2')}**")
-                st.write(explain_collaboration_recommendation(pair))
-    else:
-        st.info("No strong collaboration pairs found for this query.")
+    # ---- Tab 3: Research Insights ----
+    with tab_insights:
+        st.markdown("#### 📈 Research Trends")
+        if research_trends.get("available"):
+            st.success("External trend data (via Tavily)")
+            st.write(research_trends.get("raw_summary", ""))
+        else:
+            st.info("External trend search is unavailable right now — showing internal dataset only.")
+            if candidates:
+                seen_areas = set()
+                for faculty in candidates:
+                    for area in faculty.get("extracted", {}).get("research_areas", []):
+                        seen_areas.add(area)
+                if seen_areas:
+                    st.write("Research areas currently represented in your dataset:")
+                    st.write(", ".join(sorted(seen_areas)))
 
-    if project_suggestions:
-        st.markdown("### 💡 Joint Project Suggestions")
-        for project in project_suggestions:
-            with st.container(border=True):
-                st.markdown(f"**{project.get('title', 'Untitled Project')}**")
-                st.write(project.get("description", ""))
+        st.markdown("#### 🔍 Research Gap Analysis")
+        if research_gaps:
+            for gap in research_gaps:
+                st.write(f"- {gap}")
+        else:
+            st.info("No confirmed research gaps to show for this query.")
 
 
 # ---------------------------------------------------------------------------
 # Router
 # ---------------------------------------------------------------------------
+
+render_sidebar()
 
 stage = st.session_state["stage"]
 
