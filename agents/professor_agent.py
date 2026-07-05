@@ -119,7 +119,8 @@ def classify_professor_intent(query: str) -> str:
     collaboration_keywords = [
         "collaborate", "collaboration", "co-author", "coauthor",
         "partner with", "joint research", "find a collaborator",
-        "work together", "synergy",
+        "work together", "synergy", "email", "send email", "reach out",
+        "contact", "write to", "message",
     ]
     if any(keyword in lowered for keyword in collaboration_keywords):
         return "collaboration_matching"
